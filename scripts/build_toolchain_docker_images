@@ -27,8 +27,11 @@ then
 fi
 
 TEMP_TOOLCHAIN="toolchain-${DEVICE}.${ARCH}"
-echo "Copying ${TOOLCHAIN_DIR} to ${TEMP_TOOLCHAIN}... Please be patient!"
-cp -r ${TOOLCHAIN_DIR} ${TEMP_TOOLCHAIN}
+if [ ! -d "${TEMP_TOOLCHAIN}" ]
+then
+  echo "Copying ${TOOLCHAIN_DIR} to ${TEMP_TOOLCHAIN}... Please be patient!"
+  cp -r ${TOOLCHAIN_DIR} ${TEMP_TOOLCHAIN}
+fi
 
 IMAGE_NAME="justenoughlinuxos/jelos-toolchain:${DEVICE}-${ARCH}"
 docker build -t ${IMAGE_NAME} \
