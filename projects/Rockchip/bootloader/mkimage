@@ -89,6 +89,14 @@ do
   fi
 done
 
+if [[ "${PKG_SOC}" == "px30" ]]
+then
+  if [ -f "${RELEASE_DIR}/3rdparty/bootloader/${SD_DTB}.dtb" ]; then
+    mv "${RELEASE_DIR}/3rdparty/bootloader/${SD_DTB}.dtb" "${RELEASE_DIR}/3rdparty/bootloader/odroidgo2-u-boot.dtb"
+    mcopy -so "${RELEASE_DIR}/3rdparty/bootloader/odroidgo2-u-boot.dtb" ::
+  fi
+fi
+
 if [ "${EXT_LINUX_CONF}" == true ]
 then
 mkdir -p "${LE_TMP}/extlinux"

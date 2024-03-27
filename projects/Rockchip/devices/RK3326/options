@@ -35,6 +35,8 @@
     UBOOT_DTB="${DEVICE_DTB[0]}"
     UBOOT_CONFIG="odroidgoa_defconfig"
     PKG_SOC="px30"
+    # Replace with older binaries if serial doesn't work in u-boot:
+    # rk3326_ddr_333MHz_v1.10.bin rk3326_miniloader_v1.12.bin rk3326_bl31_v1.14.elf
     PKG_DATAFILE="$PKG_RKBIN/bin/rk33/rk3326_ddr_333MHz_v1.15.bin"
     PKG_LOADER="$PKG_RKBIN/bin/rk33/rk3326_miniloader_v1.28.bin"
     PKG_BL31="$PKG_RKBIN/bin/rk33/rk3326_bl31_v1.22.elf"
@@ -42,6 +44,7 @@
     BOOT_INI=true
     BOOT_PART="1:1"
     EXT_LINUX_CONF=false
+    SD_DTB=odroidgo2-kernel
 
   # Additional kernel make parameters (for example to specify the u-boot loadaddress)
     KERNEL_MAKE_EXTRACMD=""
